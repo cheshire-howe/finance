@@ -1,0 +1,33 @@
+.navbar {
+  border-radius: 0;
+}
+.chart .bar {
+  z-index: 1000;
+}
+.chart .bar.up-day path {
+  stroke: green;
+}
+.chart .bar.up-day rect {
+  fill: green;
+}
+.chart .bar.down-day path {
+  stroke: red;
+}
+.chart .bar.down-day rect {
+  fill: red;
+}
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.horizontal-grid {
+  stroke: #CCC;
+}
+.vertical-grid {
+  stroke: #CCC;
+}
+#loading {
+  margin-top: 150px;
+  margin-left: 150px;
+}

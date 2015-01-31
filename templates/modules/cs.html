@@ -1,0 +1,12 @@
+<form id="cs-form" class="form-inline">
+    <div class="form-group">
+        <label for="symbol" class="sr-only">Stock Symbol</label>
+        <input type="text" class="form-control" id="symbol" name="symbol" placeholder="Stock symbol">
+    </div>
+    <button type="submit" class="btn btn-default">Go!</button>
+</form>
+<div id="chart"></div>
+<div id="loading"></div>
+
+<script src="{{ static_url('js/finance/candlestick.js') }}"></script>
+<script src="{{ static_url('js/cs.js') }}"></script>

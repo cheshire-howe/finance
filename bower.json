@@ -1,0 +1,21 @@
+{
+  "name": "candlestick",
+  "version": "0.0.0",
+  "authors": [
+    "cheshire_howe <joshzoff@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "static/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.3",
+    "bootstrap": "~3.3.2"
+  }
+}
