@@ -1,0 +1,49 @@
+.navbar {
+    border-radius: 0;
+}
+
+.chart {
+    .bar {
+        z-index: 1000;
+    }
+    .bar.up-day {
+        path {
+            stroke: green;
+        }
+
+        rect {
+            fill: green;
+            stroke: black;
+        }
+    }
+
+    .bar.down-day {
+        path {
+            stroke: red;
+        }
+
+        rect {
+            fill: red;
+            stroke: black;
+        }
+    }
+}
+
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.horizontal-grid {
+    stroke: #CCC;
+}
+
+.vertical-grid {
+    stroke: #CCC;
+}
+
+#loading {
+    margin-top:150px;
+    margin-left:150px;
+}
