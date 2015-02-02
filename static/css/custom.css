@@ -9,12 +9,14 @@
 }
 .chart .bar.up-day rect {
   fill: green;
+  stroke: black;
 }
 .chart .bar.down-day path {
   stroke: red;
 }
 .chart .bar.down-day rect {
   fill: red;
+  stroke: black;
 }
 .axis path {
   fill: none;

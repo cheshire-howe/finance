@@ -31,9 +31,9 @@ finance.cstick = function() {
             });
     };
 
-    var rectangles = function(bars) {
+    var rectangles = function(bars, data) {
         var rect,
-            rectangleWidth = 5;
+            rectangleWidth = 120 / data.length;
 
         rect = bars.selectAll('rect').data(function(d) {
             return [d];
@@ -82,7 +82,7 @@ finance.cstick = function() {
                 }
             });
             highLowLines(bars);
-            rectangles(bars);
+            rectangles(bars, data);
 
             bars.exit().remove();
         });

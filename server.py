@@ -4,7 +4,7 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 
-from src.finance import get_quotes, read_quotes
+from src.finance import get_quotes
 
 from tornado.options import define, options
 define("port", default=8000, help="run on the given port", type=int)
@@ -39,10 +39,11 @@ class HomeHandler(tornado.web.RequestHandler):
 class CandlestickHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("modules/cs.html")
+
     def post(self):
-        symbol = self.get_argument('symbol')
-        data = get_quotes(symbol)
-        # data = read_quotes()
+        symbol = self.get_argument('symbol').upper()
+        days = self.get_argument('days')
+        data = get_quotes(symbol, days)
         self.set_header('Content-Type', 'application/json')
         self.write(data)
 

@@ -3,9 +3,10 @@
         e.preventDefault();
         $('#chart').html('');
         $('#loading').html('<img src="static/images/ajax-loader.gif">');
+        days = $('#days').val();
         $.post('html/cs', $('#cs-form').serialize())
             .done(function(d) {
-                buildCstick(d);
+                buildCstick(d, days);
                 $('#loading').html('');
             }).fail(function() {
                 $('#loading').html('<h3 style="color:red">Sorry, you\'re request failed. Please try again.</h3>');
@@ -13,14 +14,14 @@
     });
 })();
 
-function buildCstick(data) {
+function buildCstick(data, days) {
 
     $.each(data, function(i, d) {
         d.date = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ").parse(d.date);
     });
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
-        width = 660 - margin.left - margin.right,
+        width = 800 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
     var xScale = d3.time.scale(),
@@ -71,7 +72,7 @@ function buildCstick(data) {
     });
 
     xScale.domain([
-        new Date(minDate.getTime() - 8.64e7),
+        new Date(Date.now() - (8.64e7 * days)),
         new Date(maxDate.getTime() + 8.64e7)
     ]);
 
