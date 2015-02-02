@@ -13,6 +13,8 @@ finance.cstick = function() {
         .x(function(d) { return d.x; })
         .y(function(d) { return d.y; });
 
+    var format = d3.time.format("%B %d %Y");
+
     var highLowLines = function(bars) {
         var paths = bars
             .selectAll('.high-low-line')
@@ -21,19 +23,18 @@ finance.cstick = function() {
             });
 
         paths.enter().append('path');
-
         paths.classed('high-low-line', true)
             .attr('d', function(d) {
                 return line([
-                    { x: xScale(d.date), y: yScale(d.high) },
-                    { x: xScale(d.date), y: yScale(d.low) }
+                    { x: xScale(format(d.date)), y: yScale(d.high) },
+                    { x: xScale(format(d.date)), y: yScale(d.low) }
                 ]);
             });
     };
 
     var rectangles = function(bars, data) {
         var rect,
-            rectangleWidth = 120 / data.length;
+            rectangleWidth = 180 / data.length;
 
         rect = bars.selectAll('rect').data(function(d) {
             return [d];
@@ -43,7 +44,7 @@ finance.cstick = function() {
 
         rect
             .attr('x', function(d) {
-                return xScale(d.date) - rectangleWidth;
+                return xScale(format(d.date)) - rectangleWidth;
             })
             .attr('y', function(d) {
                 return isUpDay(d) ? yScale(d.close) : yScale(d.open);

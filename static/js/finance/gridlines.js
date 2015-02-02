@@ -12,7 +12,6 @@ finance.gridlines = function() {
             var gridX = d3.select(this)
                 .selectAll("line.horizontal-grid")
                 .data(yScale.ticks(10));
-
             gridX.enter()
                 .append("line")
                 .attr({
@@ -25,7 +24,9 @@ finance.gridlines = function() {
 
             var gridY = d3.select(this)
                 .selectAll("line.vertical-grid")
-                .data(xScale.ticks(4));
+                .data(xScale.domain().filter(function(d, i) {
+                    return !(i % Math.round(xScale.domain().length / 5));
+                }));
 
             gridY.enter()
                 .append("line")

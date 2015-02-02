@@ -23,9 +23,8 @@ def make_current(symbol, data):
         delta = (today - max_date).days - 1
         new_data = get_data_yahoo(
             symbol, datetime.now() - timedelta(days=delta))
-        new_data['date'] = new_data.index.map(lambda x: x)
-        new_data = new_data.to_dict(orient='records')
-        if new_data:
+        if new_data.empty is not True:
+            new_data = convert_pandas_to_list(new_data)
             for d in new_data:
                 db.hist.update(
                     {
