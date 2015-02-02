@@ -1,6 +1,5 @@
 node_modules/
 static/libs/
-static/images/
 static/*.png
 *.pyc
 *.swp
