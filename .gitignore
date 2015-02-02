@@ -5,3 +5,5 @@ static/images/
 static/*.png
 *.pyc
 *.swp
+*.csv
+yhoo.json
