@@ -5,8 +5,8 @@ import db
 
 def get_quotes(symbol, days):
     if (db.stock_exists(symbol)):
+        db.make_current(symbol)
         data = db.get_stock_json(symbol, days)
-        db.make_current(symbol, data)
         print "Data from db"
     else:
         data = get_data_yahoo(symbol, datetime.now() - timedelta(days=3000))

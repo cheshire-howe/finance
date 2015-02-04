@@ -1,7 +1,7 @@
 finance.build = {
     "cstick" : function(data, selection, days) {
         $.each(data, function(i, d) {
-            d.date = d3.time.format.utc("%Y-%m-%dT%H:%M:%S.%LZ").parse(d.date);
+            d.date = d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ").parse(d.date);
         });
 
         var maxDate = d3.max(data, function(d) {
